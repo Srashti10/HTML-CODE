@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        header{
+            background-image: url(data:image/jpeg;base64,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);
+            background-size: cover;
+            padding: 200px 0;
+            background-position-x: center;
+            color: white;
+
+        }
+        .card{
+            transform-style: preserve-3d;
+            transform: perspe;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <p class="display-4 fw-bold text-center page-title">Best Headphones Offer</p>
+            <div class="input-group mt-5">  
+                
+                
+            </div>
+        </div>
+    </header>
+
+
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        ScrollReveal().reveal('.page-title',{
+            delay:200,
+            origin:'bottom',
+            distance: '50px',
+            scale:0.5
+
+        });
+        ScrollReveal().reveal('.search-input',{
+            delay:200,
+            origin:'left',
+            distance: '100px',
+            // scale:0.5
+
+        });
+        ScrollReveal().reveal('.card',{
+            delay:200,
+            origin:'bottom',
+            distance: '100px',
+            interval: 200,
+            reset: true,
+            // scale:0.5
+
+        })
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js" integrity="sha512-RX/OFugt/bkgwRQg4B22KYE79dQhwaPp2IZaA/YyU3GMo/qY7GrXkiG6Dvvwnds6/DefCfwPTgCXnaC6nAgVYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        VanillaTilt.init(document.querySelectorAll('.card'),{
+            max: 25,
+            speed: 400
+        });
+    </script>
+</body>
+</html>
