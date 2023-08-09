@@ -24,3 +24,17 @@ console.log(result4);
 
 //.toUppercase()
 //.split('.')
+
+
+
+//convert the names of the array in uppercase
+const names = ['riya', 'bani', 'ritu','soumya'];
+const result5 = names.map((n) => n.toUpperCase());
+console.log(result5);
+
+
+const fullname = ['Raju Rastogi', 'Kali Charan', 'Prem Chopra'];
+
+
+// print square root of the element of the array
+
