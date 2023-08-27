@@ -6,7 +6,7 @@ const TodoList = () => {
     const addNewTask = (e) => {
         //console.log(e.code);
         if(!e.target.value) return;
-        if(e.code == 'Enter'){
+        if(e.code === 'Enter'){
             console.log(e.target.value.trim());
             setTodoList([...todoList, {text: e.target.value, completed: false}]);
             e.target.value = " "

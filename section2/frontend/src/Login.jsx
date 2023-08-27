@@ -2,6 +2,8 @@ import { useFormik } from "formik";
 import React from "react";
 import Swal from "sweetalert2";
 import * as Yup from 'yup';
+import {motion} from 'framer-motion';
+import useUserContext from "./UserContext";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is Required'),
@@ -9,6 +11,7 @@ const LoginSchema = Yup.object().shape({
 });
 
 const Login = () => {
+  const {setLoggedIn} = useUserContext();
 
   // Initializing formik
   const loginForm = useFormik({
@@ -16,7 +19,7 @@ const Login = () => {
       email : "",
       password : ""
     },
-    onSubmit : async ( values ) => {
+    onSubmit : async ( values, {resetForm} ) => {
       console.log(values);
 
       const res = await fetch('http://localhost:5000/user/authenticate', {
@@ -34,13 +37,19 @@ const Login = () => {
           icon : 'success',
           title : 'Nice!',
           text : 'Logged in Successfully 😎'
-        })
+        });
+
+        const data = await res.json();
+        sessionStorage.setItem('user',JSON.stringify(data));
+        setLoggedIn(true);
+        resetForm();
+        
       }else if(res.status === 401){
         Swal.fire({
           icon : 'error',
           title : 'Error',
           text : 'Email or Password is incorrect 😢'
-        })
+        });
       }else{
         Swal.fire({
           icon : 'error',
@@ -56,7 +65,14 @@ const Login = () => {
   });
 
   return (
-    <div>
+   
+    <motion.div
+      className="bg"
+      initial = {{opacity: 0, x: '100%'}}
+      animate = {{opacity: 1, x: 0}}
+      exit = {{opacity: 0, x: '-100%'}}
+      trasition = {{duration: 0.5, type: 'spring', stiffness: 50, damping: 10}}
+    >
       <div className="w-25">
         <div className="card">
           <div className="card-body">
@@ -77,7 +93,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

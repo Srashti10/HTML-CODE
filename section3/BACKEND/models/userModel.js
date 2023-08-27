@@ -9,3 +9,4 @@ const myschema = new Schema({
 });
 
 module.exports = model('users', myschema);
+
